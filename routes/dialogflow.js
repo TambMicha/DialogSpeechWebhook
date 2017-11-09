@@ -7,9 +7,9 @@ var router = express.Router();
 // });
 
 router.post('/', function (req, res, next) {
-	console.log("Req: " + req);
-	console.log(req);
-	var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+	console.log("Req: ");
+	console.log(req.body);
+	var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem occured. Speak again."
 	return res.json({
 		speech: speech,
 		displayText: speech
