@@ -6,22 +6,48 @@ var router = express.Router();
 //   res.render('index', { title: 'Dialogflow' });
 // });
 
+/* Route at which all dialogflow requests are being sent 
+For the use of multiple intents:
+	the intents must be saved in a dictionary and based on the intent received, a different action occurs.
+*/ 
 router.post('/', function (req, res, next) {
-	console.log("Req: ");
-	console.log(req.body);
-	var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem occured. Speak again."
+	console.log("Req result: ");
+	// console.log(req.body);
+// intent name location in Json: req.body.result.metadata.intentName
+	console.log(req.body.result.metadata.intentName);
+// intent parameters location in Json: req.body.result.parameters
+	console.log(req.body.result.parameters);
+// intent query location in Json: req.body.result.resolvedQuery
+	console.log(req.body.result.resolvedQuery);
+	console.log("----------------------------------");
+
+	var speech = mediator(req.body.result);
+
+	// var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem occured. Speak again."
 	return res.json({
 		speech: speech,
 		displayText: speech
 	});
 });
 
-router.post('/echo', function (req, res, next) {
-	// var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem occured. Speak again."
-	// return res.json({
-	// 	speech: speech,
-	// 	displayText: speech
-	// });
-});
+function mediator (res) {
+	var result;
+
+	switch(res.metadata.intentName) {
+		case "Echo":
+			result = echo(res);
+			break;
+		default:
+			result = "Seems like some problem occured. Speak again.";
+	} 
+
+	return result;
+}
+
+function echo (res) {
+	return res && res.parameters && res.parametes.echoText ? 
+		res.parameters.echoText : 
+		"Seems like some problem occured. Speak again.";
+}
 
 module.exports = router;
