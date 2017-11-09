@@ -34,7 +34,7 @@ app.use(expressSession({secret: "tamspeechook", saveUninitialized: true, resave:
 
 // Assign route address to route location
 app.use('/', indexRoute);
-app.use('/webhook', dialogflowRoute);
+app.use('/webhook', dialogflowRoute)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
