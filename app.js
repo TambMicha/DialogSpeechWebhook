@@ -67,7 +67,7 @@ app.use(function(err, req, res, next) {
 		title: 'Error - Something went wrong',
 		pageTitle: 'Error - Something went wrong',
 		message: err.message,
-		error: {}
+		error: err
 	});
 });
 

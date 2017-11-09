@@ -8,7 +8,8 @@ var router = express.Router();
 
 router.post('/', function (req, res, next) {
 	console.log("Req: " + req);
-	var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem occured. Speak again."
+	console.log(req);
+	var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 	return res.json({
 		speech: speech,
 		displayText: speech
