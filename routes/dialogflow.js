@@ -45,9 +45,10 @@ function mediator (res) {
 }
 
 function echo (res) {
-	return res && res.parameters && res.parametes.echoText ? 
-		res.parameters.echoText : 
-		"Seems like some problem occured. Speak again.";
+	console.log("func Echo:");
+	var speech = res && res.parameters && res.parametes.echoText ? res.parameters.echoText : "Seems like some problem occured. Speak again.";
+	console.log (speech)
+	return speech;
 }
 
 module.exports = router;
