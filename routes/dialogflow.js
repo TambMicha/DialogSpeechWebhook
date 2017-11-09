@@ -31,7 +31,7 @@ router.post('/', function (req, res, next) {
 });
 
 function mediator (res) {
-	var result;
+	var result = "";
 
 	switch(res.metadata.intentName) {
 		case "Echo":
