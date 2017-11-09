@@ -46,7 +46,7 @@ function mediator (res) {
 
 function echo (res) {
 	console.log("func Echo:");
-	var speech = res && res.parameters && res.parametes.echoText ? res.parameters.echoText : "Seems like some problem occured. Speak again.";
+	var speech = res && res.parameters && res.parameters.echoText ? res.parameters.echoText : "Seems like some problem occured. Speak again.";
 	console.log (speech)
 	return speech;
 }
