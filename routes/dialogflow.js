@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
 	console.log("Req result: ");
 	// console.log(req.body);
 // intent name location in Json: req.body.result.metadata.intentName
-	console.log(req.body.result.metadata.intentName);
+	console.log("Intent" + req.body.result.metadata.intentName);
 // intent parameters location in Json: req.body.result.parameters
 	console.log(req.body.result.parameters);
 // intent query location in Json: req.body.result.resolvedQuery
