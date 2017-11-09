@@ -1,0 +1,28 @@
+{
+  "name": "api_project",
+  "version": "1.0.0",
+  "description": "a API used for testing",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec"
+  },
+  "author": "Michael Schouten",
+  "license": "ISC",
+  "dependencies": {
+    "async": "*",
+    "body-parser": "~1.13.2",
+    "debug": "~2.2.0",
+    "ejs": "^2.4.2",
+    "express": "~4.13.1",
+    "express-session": "*",
+    "jsonwebtoken": "^5.7.0",
+    "morgan": "~1.6.1",
+    "nodemon": "^1.9.2",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "chai": "^2.1.2",
+    "mocha": "^2.2.1",
+    "supertest": "^0.15.0"
+  }
+}
