@@ -32,32 +32,32 @@ router.post('/', function (req, res, next) {
 	// });
 });
 
-function mediator (res) {
+function mediator (value, res) {
 	var result = "";
 
-	switch(res.metadata.intentName) {
+	switch(value.metadata.intentName) {
 		case "Echo":
-			result = echo(res);
+			res = echo(value, res);
 			break;
 		case "Do_Location_Test":
-			result = location(res);
+			res = location(value, res);
 			break;
 		default:
-			result.json({
+			res.json({
 				speech: "Seems like some problem occured. Speak again.",
 				displayText: "Seems like some problem occured. Speak again."
 			});
 	} 
 	console.log("mediator print: ");
-	console.log(result);
-	return result;
+	// console.log(result);
+	return res;
 }
 
-function echo (res) {
+function echo (value, res) {
 	console.log("func Echo:");
-	var speech = res && res.parameters && res.parameters.echoText ? res.parameters.echoText : "Seems like some problem occured. Speak again.";
+	var speech = value && value.parameters && value.parameters.echoText ? value.parameters.echoText : "Seems like some problem occured. Speak again.";
 	console.log (speech)
-	return speech1.json({
+	return res.json({
 		speech: speech,
 		displayText: speech
 	});
