@@ -37,7 +37,7 @@ function mediator (res) {
 		case "Echo":
 			result = echo(res);
 			break;
-		case "":
+		case "Do_Location_Test":
 			result = location(res);
 			break;
 		default:
