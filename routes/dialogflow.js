@@ -20,8 +20,8 @@ router.post('/', function (req, res, next) {
 // intent query location in Json: req.body.result.resolvedQuery
 	console.log(req.body.result.resolvedQuery);
 	console.log("----------------------------------");
-	console.log(res);
-	return mediator(req.body.result);
+	// console.log(res);
+	return mediator(req.body.result, res);
 
 	// var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem occured. Speak again."
 	// console.log("Res: ");
@@ -63,7 +63,7 @@ function echo (value, res) {
 	});
 }
 
-function location (res) {
+function location (value, res) {
 	console.log("func Location:");
 }
 
