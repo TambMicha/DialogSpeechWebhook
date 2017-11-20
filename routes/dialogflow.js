@@ -72,6 +72,7 @@ function location (value, res) {
 			type: "basic_card",
 			platform: "google",
 			title: "Tambien location",
+			subtitle: "Tambien",
 			formattedText: "Location to Tambien",
 			image: {
 				url: "https://picsum.photos/200/300"
