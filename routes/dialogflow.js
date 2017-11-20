@@ -21,15 +21,15 @@ router.post('/', function (req, res, next) {
 	console.log(req.body.result.resolvedQuery);
 	console.log("----------------------------------");
 
-	var speech = mediator(req.body.result);
+	return mediator(req.body.result);
 
 	// var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem occured. Speak again."
-	console.log("Res: ");
-	console.log (res);
-	return res.json({
-		speech: speech,
-		displayText: speech
-	});
+	// console.log("Res: ");
+	// console.log (res);
+	// return res.json({
+	// 	speech: speech,
+	// 	displayText: speech
+	// });
 });
 
 function mediator (res) {
@@ -39,8 +39,14 @@ function mediator (res) {
 		case "Echo":
 			result = echo(res);
 			break;
+		case "Do_Location_Test":
+			result = location(res);
+			break;
 		default:
-			result = "Seems like some problem occured. Speak again.";
+			result.json({
+				speech: "Seems like some problem occured. Speak again.",
+				displayText: "Seems like some problem occured. Speak again."
+			});
 	} 
 
 	return result;
@@ -50,7 +56,15 @@ function echo (res) {
 	console.log("func Echo:");
 	var speech = res && res.parameters && res.parameters.echoText ? res.parameters.echoText : "Seems like some problem occured. Speak again.";
 	console.log (speech)
-	return speech;
+	return speech1.json({
+		speech: speech,
+		displayText: speech
+	});
 }
+
+function location (res) {
+	console.log("func Location:");
+}
+
 
 module.exports = router;
