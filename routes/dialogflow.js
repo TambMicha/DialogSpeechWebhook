@@ -37,6 +37,9 @@ function mediator (res) {
 		case "Echo":
 			result = echo(res);
 			break;
+		case "":
+			result = location(res);
+			break;
 		default:
 			result.json({
 				speech: "Seems like some problem occured. Speak again.",
