@@ -67,52 +67,48 @@ function location (value, res) {
 	console.log("func Location:");
 
 	return res.json({
-	    "conversationToken": "",
-	    "expectUserResponse": true,
-	    "expectedInputs": 
-	    [
-	        {
-	            "inputPrompt": 
-	            {
-	                "richInitialPrompt": 
-	                {
-	                    "items": 
-	                    [
-	                        {
-	                            "simpleResponse": 
-	                            {
-	                                "textToSpeech": "Here are the directions to Tambien"
-	                            }
-	                        },
-	                        {
-	                            "basicCard": 
-	                            {
-	                                "title": "Directions to Tambien",
-	                                "formattedText": "...",
-	                                "image": 
-	                                {
-	                                    "url": "https://maps.googleapis.com/maps/api/staticmap?center=51.580042,5.064080&markers=51.580042,5.064080&zoom=14&size=400x400",
-	                                    "accessibilityText": "Image alternate text"
-	                                },
-	                                "buttons": 
-	                                [
-	                                    {
-	                                        "title": "Go to maps",
-	                                        "openUrlAction": 
-	                                        {
-	                                            "url": "https://www.google.nl/maps/dir//Tambien,+Kraaivenstraat+23,+5048+AB+Tilburg/@51.58005,5.061869,17z/data=!4m16!1m6!3m5!1s0x47c6be1737a1ea05:0x45c6ca274a4b443c!2sTambien!8m2!3d51.58005!4d5.064063!4m8!1m0!1m5!1m1!1s0x47c6be1737a1ea05:0x45c6ca274a4b443c!2m2!1d5.064063!2d51.58005!3e0?hl=en"
-	                                        }
-	                                    }
-	                                ]
-	                            }
-	                        }
-	                    ],
-	                    "suggestions": []
-	                }
-	            }
-	        }
-	    ]
-	})
+    "conversationToken": "",
+    "expectUserResponse": true,
+    "expectedInputs": [
+        {
+            "inputPrompt": {
+                "richInitialPrompt": {
+                    "items": [
+                        {
+                            "simpleResponse": {
+                                "textToSpeech": "Math and prime numbers it is!"
+                            }
+                        },
+                        {
+                            "basicCard": {
+                                "title": "Math & prime numbers",
+                                "formattedText": "42 is an even composite number. It\n    is composed of three distinct prime numbers multiplied together. It\n    has a total of eight divisors. 42 is an abundant number, because the\n    sum of its proper divisors 54 is greater than itself. To count from\n    1 to 42 would take you about twenty-one…",
+                                "image": {
+                                    "url": "https://example.google.com/42.png",
+                                    "accessibilityText": "Image alternate text"
+                                },
+                                "buttons": [
+                                    {
+                                        "title": "Read more",
+                                        "openUrlAction": {
+                                            "url": "https://example.google.com/mathandprimes"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "suggestions": []
+                }
+            },
+            "possibleIntents": [
+                {
+                    "intent": "actions.intent.TEXT"
+                }
+            ]
+        }
+    ]
+});
 }
 
 
