@@ -67,28 +67,22 @@ function location (value, res) {
 	console.log("func Location:");
 
 	return res.json({
-		google: {
-			expect_user_response: true,
-			rich_response: {
-				items: [{
-					basicCard: {
-	    				title: "Directions to Tambien",
-	    				subtitle: "Tambien",
-	    				formattedText: "",
-	    				image: {
-	    					url: "https://maps.googleapis.com/maps/api/staticmap?center=51.580042,5.064080&markers=51.580042,5.064080&zoom=14&size=400x400",
-	    					accessibilityText: ""
-	    				},
-	    				buttons: [{
-	    					title: "Go to maps",
-	    					openUrlAction: {
-	    						url: "https://www.google.nl/maps/dir//Tambien,+Kraaivenstraat+23,+5048+AB+Tilburg/@51.58005,5.061869,17z/data=!4m16!1m6!3m5!1s0x47c6be1737a1ea05:0x45c6ca274a4b443c!2sTambien!8m2!3d51.58005!4d5.064063!4m8!1m0!1m5!1m1!1s0x47c6be1737a1ea05:0x45c6ca274a4b443c!2m2!1d5.064063!2d51.58005!3e0?hl=en"
-	    					}
-	    				}],
-	    			}
-				}]
-			}
-		}	    
+		speech: "",
+		messages: [{
+			type: "basic_card",
+			platform: "google",
+			title: "Tambien location",
+			formattedText: "Location to Tambien",
+			image: {
+				url: "https://picsum.photos/200/300"
+			},
+			buttons: [{
+				title: "Go to maps",
+				openUrlAction: {
+					url: "https://www.google.com/"
+				}
+			}]
+		}]
 	});
 }
 
