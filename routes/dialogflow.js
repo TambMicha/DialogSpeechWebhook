@@ -65,7 +65,7 @@ function echo (value, res) {
 
 function location (value, res) {
 	console.log("func Location:");
-
+//
 	return res.json({
 		"messages": [{
 		    "buttons": [{
