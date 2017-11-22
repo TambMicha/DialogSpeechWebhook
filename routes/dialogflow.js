@@ -68,6 +68,11 @@ function location (value, res) {
 //
 	return res.json({
 		"messages": [{
+    		"displayText": "Text response",
+    		"platform": "google",
+    		"textToSpeech": "Audio response",
+    		"type": "simple_response"
+  		},{
 		    "buttons": [{
 		        "openUrlAction": {
 		          "url": "https://linkUrl.com"
